@@ -12,15 +12,13 @@ namespace Week2Day2Homework
         {
             Animal A;
             A = new Animal("Cat", "Scales");
-            //Type t = A.GetType();
             Console.WriteLine("My animal is a: " + A.Species);
             Console.WriteLine("My animal is covered with: " + A.ExternalCovering);
 
             Mammal P;
             P = new Mammal(1);
-            //Type t = A.GetType();
-            Console.WriteLine("My Mammal has " + P.AvgNumOffspring + " average number of offstring.");
-          
+            Console.WriteLine("My Mammal has " + P.AvgNumOffspring + " average number of offspring.");
+
             Console.ReadLine();
 
         }
@@ -35,8 +33,8 @@ namespace Week2Day2Homework
         }
         public Animal(string _Species, string _ExternalCovering)
         {
-            this.Species = _Species;
-            this.ExternalCovering = _ExternalCovering;
+            Species = _Species;
+            ExternalCovering = _ExternalCovering;
         }
 
         public string Species
@@ -61,10 +59,6 @@ namespace Week2Day2Homework
                 _ExternalCovering = value;
             }
         }
-
-        public virtual string GetDisplayText(string sep) =>
-            Species + sep + ExternalCovering;
-
     }
     public class Mammal : Animal
     {
@@ -91,23 +85,123 @@ namespace Week2Day2Homework
         }
         public class Reptile : Animal
         {
+            private int _AvgWeight;
 
+            public Reptile()
+            {
+            }
+            public Reptile(int _AvgWeight)
+            {
+                AvgWeight = _AvgWeight;
+            }
+
+            public int AvgWeight
+            {
+                get
+                {
+                    return _AvgWeight;
+                }
+                set
+                {
+                    _AvgWeight = value;
+                }
+            }
         }
         public class Human : Mammal
         {
+            private string _HairColor;
 
+            public Human()
+            {
+            }
+            public Human(string _HairColor)
+            {
+                HairColor = _HairColor;
+            }
+
+            public string HairColor
+            {
+                get
+                {
+                    return _HairColor;
+                }
+                set
+                {
+                    _HairColor = value;
+                }
+            }
         }
         public class Dog : Mammal
         {
+            private string _Breed;
 
+            public Dog()
+            {
+            }
+            public Dog(string _Breed)
+            {
+                Breed = _Breed;
+            }
+
+            public string Breed
+            {
+                get
+                {
+                    return _Breed;
+                }
+                set
+                {
+                    _Breed = value;
+                }
+            }
         }
         public class Snake : Reptile
         {
+            private string _IsVenomous;
 
+            public Snake()
+            {
+            }
+            public Snake(string _IsVenomous)
+            {
+                IsVenomous = _IsVenomous;
+            }
+
+            public string IsVenomous
+            {
+                get
+                {
+                    return _IsVenomous;
+                }
+                set
+                {
+                    _IsVenomous = value;
+                }
+            }
         }
         public class Lizard : Reptile
         {
+            private string _IsDessertDweller;
 
+            public Lizard()
+            {
+            }
+            public Lizard(string _IsDessertDweller)
+            {
+                IsDessertDweller = _IsDessertDweller;
+            }
+
+            public string IsDessertDweller
+            {
+                get
+                {
+                    return _IsDessertDweller;
+                }
+                set
+                {
+                    _IsDessertDweller = value;
+                }
+            }
         }
     }
 }
