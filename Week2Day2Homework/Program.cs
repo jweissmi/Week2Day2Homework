@@ -10,14 +10,42 @@ namespace Week2Day2Homework
     {
         static void Main(string[] args)
         {
-            Animal A;
-            A = new Animal("Cat", "Scales");
-            Console.WriteLine("My animal is a: " + A.Species);
-            Console.WriteLine("My animal is covered with: " + A.ExternalCovering);
 
-            Mammal P;
-            P = new Mammal(1);
-            Console.WriteLine("My Mammal has " + P.AvgNumOffspring + " average number of offspring.");
+            Human Jim = new Human();
+            Jim.Species = "Homosapian";
+            Jim.ExternalCovering = "Skin";
+            Jim.AvgNumOffspring = 5;
+            Jim.HairColor = "dark";
+
+            Console.WriteLine("Jim is a " + Jim.Species + ".");
+            Console.WriteLine("His body is covered in " + Jim.ExternalCovering + ".");
+            Console.WriteLine("Jim has " + Jim.AvgNumOffspring + " kids, which is more than the average number of offspring.");
+            Console.WriteLine("Jim's hair is " + Jim.HairColor + ".");
+
+            Dog Rover = new Dog();
+            Rover.Breed = "Mutt";
+            Rover.ExternalCovering = "Scruffy Fur";
+            Rover.AvgNumOffspring = 6;
+            Rover.Species = "Canis familiaris Linnaeus";
+
+            Console.WriteLine("Rover is a " + Rover.Breed + " from the species " + Rover.Species + " with " + Rover.ExternalCovering + ".");
+            Console.WriteLine("She once had a litter of " + Rover.AvgNumOffspring + " puppies.");
+
+            Lizard Larry = new Lizard();
+            Larry.IsDesertDweller = "desert dweller";
+            Larry.AvgWeight = 220;
+            Larry.ExternalCovering = "dry skin";
+            Larry.Species = "Lounge Lizard";
+
+            Console.WriteLine("Larry, of the species " + Larry.Species + " is a " + Larry.AvgWeight + " pound " + Larry.IsDesertDweller + " with " + Larry.ExternalCovering + ".");
+
+            Snake Sam = new Snake();
+            Sam.IsVenomous = "is venomous";
+            Sam.AvgWeight = 12;
+            Sam.ExternalCovering = "scales";
+            Sam.Species = "King Sanke";
+
+            Console.WriteLine("Sam is a " + Sam.IsVenomous + " " + Sam.Species + " covered with " + Sam.ExternalCovering + " weighing " + Sam.AvgWeight + " pounds.");
 
             Console.ReadLine();
 
@@ -59,6 +87,10 @@ namespace Week2Day2Homework
                 _ExternalCovering = value;
             }
         }
+        public virtual int NumLegs()
+        {
+            return 4;
+        }
     }
     public class Mammal : Animal
     {
@@ -71,7 +103,6 @@ namespace Week2Day2Homework
         {
             AvgNumOffspring = _AvgNumOffspring;
         }
-
         public int AvgNumOffspring
         {
             get
@@ -83,124 +114,128 @@ namespace Week2Day2Homework
                 _AvgNumOffspring = value;
             }
         }
-        public class Reptile : Animal
+    }
+    public class Reptile : Animal
+    {
+        private int _AvgWeight;
+
+        public Reptile()
         {
-            private int _AvgWeight;
+        }
+        public Reptile(int _AvgWeight)
+        {
+            AvgWeight = _AvgWeight;
+        }
 
-            public Reptile()
+        public int AvgWeight
+        {
+            get
             {
+                return _AvgWeight;
             }
-            public Reptile(int _AvgWeight)
+            set
             {
-                AvgWeight = _AvgWeight;
-            }
-
-            public int AvgWeight
-            {
-                get
-                {
-                    return _AvgWeight;
-                }
-                set
-                {
-                    _AvgWeight = value;
-                }
+                _AvgWeight = value;
             }
         }
-        public class Human : Mammal
+    }
+    public class Human : Mammal
+    {
+        private string _HairColor;
+
+        public Human()
         {
-            private string _HairColor;
+        }
+        public Human(string _HairColor)
+        {
+            HairColor = _HairColor;
+        }
 
-            public Human()
+        public string HairColor
+        {
+            get
             {
+                return _HairColor;
             }
-            public Human(string _HairColor)
+            set
             {
-                HairColor = _HairColor;
-            }
-
-            public string HairColor
-            {
-                get
-                {
-                    return _HairColor;
-                }
-                set
-                {
-                    _HairColor = value;
-                }
+                _HairColor = value;
             }
         }
-        public class Dog : Mammal
+        public override int NumLegs()
         {
-            private string _Breed;
+            return 2;
+        }
+    }
+    public class Dog : Mammal
+    {
+        private string _Breed;
 
-            public Dog()
-            {
-            }
-            public Dog(string _Breed)
-            {
-                Breed = _Breed;
-            }
+        public Dog()
+        {
+        }
+        public Dog(string _Breed)
+        {
+            Breed = _Breed;
+        }
 
-            public string Breed
+        public string Breed
+        {
+            get
             {
-                get
-                {
-                    return _Breed;
-                }
-                set
-                {
-                    _Breed = value;
-                }
+                return _Breed;
+            }
+            set
+            {
+                _Breed = value;
             }
         }
-        public class Snake : Reptile
+    }
+    public class Snake : Reptile
+    {
+        private string _IsVenomous;
+
+        public Snake()
         {
-            private string _IsVenomous;
+        }
+        public Snake(string _IsVenomous)
+        {
+            IsVenomous = _IsVenomous;
+        }
 
-            public Snake()
+        public string IsVenomous
+        {
+            get
             {
+                return _IsVenomous;
             }
-            public Snake(string _IsVenomous)
+            set
             {
-                IsVenomous = _IsVenomous;
-            }
-
-            public string IsVenomous
-            {
-                get
-                {
-                    return _IsVenomous;
-                }
-                set
-                {
-                    _IsVenomous = value;
-                }
+                _IsVenomous = value;
             }
         }
-        public class Lizard : Reptile
+    }
+    public class Lizard : Reptile
+    {
+        private string _IsDesertDweller;
+
+        public Lizard()
         {
-            private string _IsDessertDweller;
+        }
+        public Lizard(string _IsDesertDweller)
+        {
+            IsDesertDweller = _IsDesertDweller;
+        }
 
-            public Lizard()
+        public string IsDesertDweller
+        {
+            get
             {
+                return _IsDesertDweller;
             }
-            public Lizard(string _IsDessertDweller)
+            set
             {
-                IsDessertDweller = _IsDessertDweller;
-            }
-
-            public string IsDessertDweller
-            {
-                get
-                {
-                    return _IsDessertDweller;
-                }
-                set
-                {
-                    _IsDessertDweller = value;
-                }
+                _IsDesertDweller = value;
             }
         }
     }
