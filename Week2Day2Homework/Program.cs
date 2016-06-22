@@ -16,11 +16,12 @@ namespace Week2Day2Homework
             Jim.ExternalCovering = "Skin";
             Jim.AvgNumOffspring = 5;
             Jim.HairColor = "dark";
-
+            
             Console.WriteLine("Jim is a " + Jim.Species + ".");
             Console.WriteLine("His body is covered in " + Jim.ExternalCovering + ".");
             Console.WriteLine("Jim has " + Jim.AvgNumOffspring + " kids, which is more than the average number of offspring.");
             Console.WriteLine("Jim's hair is " + Jim.HairColor + ".");
+            Console.WriteLine("Jim has " + Jim.NumLegs() + " legs");
 
             Dog Rover = new Dog();
             Rover.Breed = "Mutt";
